@@ -8,15 +8,15 @@ package_name = "deepClassifier"
 
 list_of_files = [
     ".github/workflows/.gitkeep",
-    f"/src/{package_name}/__init__.py",
-    f"/src/{package_name}/components/__init__.py",
-    f"/src/{package_name}/utility/__init__.py",
-    f"/src/{package_name}/config/__init__.py",
-    f"/src/{package_name}/pipeline/__init__.py",
-    f"/src/{package_name}/entity/__init__.py",
-    f"/src/{package_name}/constants/__init__.py",
-    f"/src/{package_name}/components/__init__.py",
-    f"/src/{package_name}/components/__init__.py",
+    f"src/{package_name}/__init__.py",
+    f"src/{package_name}/components/__init__.py",
+    f"src/{package_name}/utility/__init__.py",
+    f"src/{package_name}/config/__init__.py",
+    f"src/{package_name}/pipeline/__init__.py",
+    f"src/{package_name}/entity/__init__.py",
+    f"src/{package_name}/constants/__init__.py",
+    f"src/{package_name}/components/__init__.py",
+    f"src/{package_name}/components/__init__.py",
     "configs/config.yaml",
     "dvc.yaml",
     "params.yaml",
@@ -38,7 +38,7 @@ for filepath in list_of_files:
         os.makedirs(filedir,exist_ok=True)
         logging.info(f"Creating Directory : filedir : {filedir} for filename : {filename}")
 
-    if (not os.path.exists(filePath)) or (os.path.getsize(filePath)):
+    #if (not os.path.exists(filePath)) or (os.path.getsize(filePath)):
         with open(filePath,"w") as file_obj:
             pass # Craete an Empty file
             logging.info(f"Creating empty File : {filePath}")
