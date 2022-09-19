@@ -38,7 +38,7 @@ for filepath in list_of_files:
         os.makedirs(filedir,exist_ok=True)
         logging.info(f"Creating Directory : filedir : {filedir} for filename : {filename}")
 
-    #if (not os.path.exists(filePath)) or (os.path.getsize(filePath)):
+    if (not os.path.exists(filePath)) or (os.path.getsize(filePath)):
         with open(filePath,"w") as file_obj:
             pass # Craete an Empty file
             logging.info(f"Creating empty File : {filePath}")
