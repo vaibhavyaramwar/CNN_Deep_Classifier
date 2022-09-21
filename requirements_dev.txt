@@ -12,7 +12,7 @@ ensure==1.0.2
 joblib
 types-PyYAML
 scipy
-#-e .
+-e .
 
 ## Dev requirements
 pytest==7.1.3
