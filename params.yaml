@@ -1,0 +1,2 @@
+data_ingestion:
+  train_test_split:0.7

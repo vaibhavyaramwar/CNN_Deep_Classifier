@@ -26,10 +26,10 @@ def read_yaml_file(file_path) -> ConfigBox:
     try:
         with open(file_path) as file_obj:
             yaml_file = yaml.safe_load(file_obj)
-            logger.log(f"yaml file : {file_path} loaded Successfully")
+            logger.info(f"yaml file : {file_path} loaded Successfully")
             return ConfigBox(yaml_file)
     except BoxValueError as bv:
-        logger.log("Value Error , yaml file is empty")
+        logger.info("Value Error , yaml file is empty")
     except Exception as e:
         raise e
 
