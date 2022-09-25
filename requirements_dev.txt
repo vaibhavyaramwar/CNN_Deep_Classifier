@@ -7,7 +7,7 @@ matplotlib
 seaborn
 python-box==6.0.2
 pyYAML
-tqdm
+tqdm # used to see progress of work , like for loop is executing for a longer time then it will show status of execution
 ensure==1.0.2
 joblib
 types-PyYAML
