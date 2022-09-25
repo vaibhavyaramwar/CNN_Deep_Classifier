@@ -1,1 +1,1 @@
-from deepClassifier.components.DataIngestion import DataIngestion
+#from deepClassifier.components.DataIngestion import DataIngestion
