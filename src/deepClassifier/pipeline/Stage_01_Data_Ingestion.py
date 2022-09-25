@@ -4,6 +4,7 @@ from deepClassifier import logger
 
 STAGE_NAME = "Data Ingestion Stage"
 
+
 def main():
     config = ConfigManager()
     data_ingestion_config = config.get_data_ingestion_config()

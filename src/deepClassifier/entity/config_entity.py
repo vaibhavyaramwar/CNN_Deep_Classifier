@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from pathlib import Path
-import pathlib
+
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
-    root_dir: pathlib
+    root_dir: Path
     source_url: str
-    local_data_file: pathlib
-    unzip_dir: pathlib
+    local_data_file: Path
+    unzip_dir: Path
