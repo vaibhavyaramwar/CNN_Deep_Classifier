@@ -10,77 +10,82 @@ import joblib
 from ensure import ensure_annotations
 from typing import Any
 
+
 @ensure_annotations
-def read_yaml_file(file_path) -> ConfigBox:
-    '''
-        reads yaml file and returns
-            Args:
-                path_to_yaml (str): path like input
-            Raises:
-                ValueError: if yaml file is empty
-                e: empty file
-            Returns:
-                ConfigBox: ConfigBox type
-    
-    '''
+def read_yaml_file(file_path: Path) -> ConfigBox:
+    """
+    reads yaml file and returns
+        Args:
+            path_to_yaml (str): path like input
+        Raises:
+            ValueError: if yaml file is empty
+            e: empty file
+        Returns:
+            ConfigBox: ConfigBox type
+
+    """
     try:
         with open(file_path) as file_obj:
             yaml_file = yaml.safe_load(file_obj)
             logger.info(f"yaml file : {file_path} loaded Successfully")
             return ConfigBox(yaml_file)
-    except BoxValueError as bv:
+    except ValueError as bv:
         logger.info("Value Error , yaml file is empty")
+        raise bv
     except Exception as e:
         raise e
 
-@ensure_annotations
-def create_directories(path_to_directories:list,verbose=True):
-    '''
-        iterate the path list and create directories for given path
 
-        Args:
-            path_to_directories (list): list of path of directories
-            ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
-    '''
+@ensure_annotations
+def create_directories(path_to_directories: list, verbose=True):
+    """
+    iterate the path list and create directories for given path
+
+    Args:
+        path_to_directories (list): list of path of directories
+        ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to False.
+    """
     try:
         for path in path_to_directories:
-            os.makedirs(path,exist_ok=True)
+            os.makedirs(path, exist_ok=True)
             if verbose:
                 logger.info(f"Created Directory at Path : {path}")
     except Exception as e:
         raise e
 
+
 @ensure_annotations
-def save_json(path:Path,data:dict):
+def save_json(path: Path, data: dict):
     """
-        save json data
-        Args:
-            path (Path): path to json file
-            data (dict): data to be saved in json file
+    save json data
+    Args:
+        path (Path): path to json file
+        data (dict): data to be saved in json file
     """
     try:
-        with open(path,"w") as file_data:
-            json.dump(data,file_data,indent=4)
+        with open(path, "w") as file_data:
+            json.dump(data, file_data, indent=4)
 
         logger.info(f"Json file saved at path : {path}")
     except Exception as e:
         raise e
 
-@ensure_annotations
-def load_json(path:Path) ->ConfigBox:
 
-    '''
+@ensure_annotations
+def load_json(path: Path) -> ConfigBox:
+
+    """
     load json files data
         Args:
             path (Path): path to json file
         Returns:
             ConfigBox: data as class attributes instead of dict
-    '''
+    """
 
     try:
-        with open(path,"r") as file_obj:
-            content = json.loads(path)
-        
+        with open(path) as file_obj:
+            content = json.loads(file_obj)
+
         logger.info(f"Json file loaded Successfully : {path}")
         return ConfigBox(content)
     except Exception as e:
@@ -96,6 +101,7 @@ def save_bin(data: Any, path: Path):
     """
     joblib.dump(value=data, filename=path)
     logger.info(f"binary file saved at: {path}")
+
 
 @ensure_annotations
 def load_bin(path: Path) -> Any:
@@ -118,5 +124,5 @@ def get_size(path: Path) -> str:
     Returns:
         str: size in KB
     """
-    size_in_kb = round(os.path.getsize(path)/1024)
+    size_in_kb = round(os.path.getsize(path) / 1024)
     return f"~ {size_in_kb} KB"
