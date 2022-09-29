@@ -1,2 +1,12 @@
-data_ingestion:
-  train_test_split:0.7
+AUGUMENTATION : True
+IMAGE_SIZE: [224,224,3] # as per VGG16 model, for custume model need to change it
+BATCH_SIZE: 16
+INCLUDE_TOP : FALSE
+EPOCHS : 1
+CLASSESS: 2
+WEIGHTS: imagenet
+LEARNING_RATE: 0.01
+
+
+
+
