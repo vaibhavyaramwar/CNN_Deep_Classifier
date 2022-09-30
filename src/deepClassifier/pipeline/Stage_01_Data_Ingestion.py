@@ -1,6 +1,7 @@
 from deepClassifier.config.Configuration import ConfigManager
 from deepClassifier.components.DataIngestion import DataIngestion
 from deepClassifier import logger
+from pathlib import Path
 
 STAGE_NAME = "Data Ingestion Stage"
 
